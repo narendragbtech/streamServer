@@ -5,7 +5,7 @@ const app = require('express')()
 ;
 // use rtsp = require('rtsp-ffmpeg') instead if you have install the package
 server.listen(3000, function () {
-    console.log('Listening on localhost:6147');
+    console.log('Listening on localhost:3000');
 });
 var cams = [
     , 'rtsp://admin:ADMIN@12@136.233.89.172:554/Streaming/Channels/101'
