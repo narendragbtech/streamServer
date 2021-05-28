@@ -1,0 +1,26 @@
+{
+  "name": "video-camera",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "ffmpeg": "0.0.4",
+    "fluent-ffmpeg": "^2.1.2",
+    "node-onvif": "^0.1.7",
+    "node-rtsp-recorder": "^1.0.3",
+    "node-rtsp-stream": "0.0.9",
+    "node-rtsp-stream-es6": "^1.0.7",
+    "rtsp-ffmpeg": "0.0.15",
+    "rtsp-video-recorder": "^1.4.0-alpha.3",
+    "socket.io": "^4.1.2",
+    "websocket-relay": "^0.3.3",
+    "ws": "^7.4.5"
+  }
+}

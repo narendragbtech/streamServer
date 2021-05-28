@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="socket.io/socket.io.js"></script>
+<script>
+    const videoStreaming ='/';
+    const socket = io(videoStreaming);
+    startCamera(channel_id)
+    function startCamera(channel_id,patient_id) {
+        let divSocket, canvas = document.getElementById('patient_canvas_'+patient_id);
+        if (divSocket) {
+            divSocket.disconnect();
+        }
+        console.log('connecting to channel : ',channel_id);
+        divSocket = io(videoStreaming + channel_id);
+        divSocket.on('data', function(data) {
+            let bytes = new Uint8Array(data);
+            let blob = new Blob([bytes], {type: 'application/octet-binary'});
+            let url = URL.createObjectURL(blob);
+            let img = new Image;
+            let ctx = canvas.getContext("2d");
+            img.onload = function() {
+                URL.revokeObjectURL(url);
+                ctx.drawImage(img,0,0,500,500);
+            };
+            img.src = url;
+        });
+    }
+</script>
+</body>
+</html>
