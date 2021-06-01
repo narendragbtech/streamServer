@@ -1,12 +1,18 @@
-const app = require('express')()
-    , server = require('http').Server(app)
+const express = require('express');
+const app = express();
+const path = require('path');
+const fs = require('fs');
+const server = require('http').Server(app)
     , io = require('socket.io')(server)
-    , rtsp = require('rtsp-ffmpeg');
-;
+    , rtsp = require('rtsp-ffmpeg'),
+    exec = require('child_process').exec;
 // use rtsp = require('rtsp-ffmpeg') instead if you have install the package
-server.listen(80, function () {
-    console.log('Listening on localhost:80');
+server.listen(3000, function () {
+    console.log('Listening on localhost:3000');
 });
+
+app.use(express.static(path.join(__dirname, "video")));
+
 var cams = [
     {url: 'rtsp://admin:ADMIN@12@136.233.89.172:1024/Streaming/Channels/101', code: '1024 | 101'}
     , {url: 'rtsp://admin:ADMIN@12@136.233.89.172:1024/Streaming/Channels/201', code: '1024 | 201'}
@@ -74,13 +80,48 @@ cams.forEach(function (object, i) {
             object.stream.removeListener('data', pipeStream);
         });
     });
+    ns.on('get-image', function (data) {
+
+    });
 });
 
 io.on('connection', function (socket) {
-    let code = cams.map(i=>i.channel);
+    let number = Math.random();
+    let code = cams.map(i => i.channel);
     socket.emit('start', code);
+   //  getImage('rtsp://admin:ADMIN@12@136.233.89.172:1024/Streaming/Channels/401','./video/picture-'+number+'.jpg', (type,object)=>{
+   //      console.log('execution',type);
+   //      if(type ===2){
+   //          let code = cams.map(i => i.channel);
+   //            fs.readFile(__dirname+"/video/picture-"+number+".jpg",(err,data)=>{
+   //                if(!err){
+   //                    console.log(data);
+   //                    socket.emit('start',data.toString('base64'));
+   //                }
+   //                console.log(err);
+   //              return;
+   //          })
+   //      }
+   //  });
+
 });
 
 app.get('/', function (req, res) {
     res.sendFile(__dirname + '/index-canvas.html');
 });
+// "ffmpeg -rtsp_transport tcp -i rtsp://admin:ADMIN@12@136.233.89.172:1024/Streaming/Channels/401 -vframes 5 -update 1 ./video/picture-1024-401.jpg"
+function getImage(url,file_name,callback) {
+    let args = ['ffmpeg','-rtsp_transport tcp -i ',url,'-vframes 5','-update 1',file_name];
+    console.log(args.join(" "));
+    execute(args.join(" "),callback);
+}
+
+function execute(command, callback) {
+    exec(command, function (error, stdout, stderr) {
+        if (error) {
+            console.error(`exec error: ${error}`);
+           return ;
+        }
+        return callback(2,stdout);
+    });
+}

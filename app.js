@@ -66,22 +66,22 @@ stream.start();
 // ffmpeg -i rtsp://admin:ADMIN@12@136.233.89.172:554/Streaming/Channels/202 -vcodec copy recording.mp4
 //  // Recorder, { RecorderEvents } from 'rtsp-video-recorder';
 
-// const Recorder = require('node-rtsp-recorder').Recorder
-//
-// let rec = new Recorder({
-//     url: 'rtsp://admin:ADMIN@12@136.233.89.172:554/Streaming/Channels/202',
-//     timeLimit: 60, // time in seconds for each segmented video file
-//     folder: 'video/',
-//     name: 'cam1',
-//     type: 'image',
-// })
-// // Starts Recording
-// // console.log('Before Start',rec.isRecording());
+const Recorder = require('node-rtsp-recorder').Recorder
+
+let rec = new Recorder({
+    url: '-rtsp_transport tcp rtsp://admin:ADMIN@12@136.233.89.172:554/Streaming/Channels/202',
+    timeLimit: 60, // time in seconds for each segmented video file
+    folder: 'video/',
+    name: 'cam1',
+    type: 'image',
+})
+// Starts Recording
+// console.log('Before Start',rec.isRecording());
 //  rec.startRecording();
 // console.log('Before Start',rec.isRecording());
-// rec.captureImage(() => {
-//     console.log('Image Captured')
-// })
+rec.captureImage(() => {
+    console.log('Image Captured')
+})
 // console.log('Before Start',rec.isRecording());
 // setTimeout(() => {
 //     console.log('Stopping Recording')
