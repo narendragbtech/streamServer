@@ -7,8 +7,8 @@ const server = require('http').Server(app)
     , rtsp = require('rtsp-ffmpeg'),
     exec = require('child_process').exec;
 // use rtsp = require('rtsp-ffmpeg') instead if you have install the package
-server.listen(3000, function () {
-    console.log('Listening on localhost:3000');
+server.listen(80, function () {
+    console.log('Listening on localhost:80');
 });
 
 app.use(express.static(path.join(__dirname, "video")));
