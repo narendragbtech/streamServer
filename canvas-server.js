@@ -96,6 +96,6 @@ async function readCameras() {
     return JSON.parse(jsonData);
 }
 
-server.listen(3000, function () {
-    console.log('Listening on localhost:3000');
+server.listen(80, function () {
+    console.log('Listening on localhost:80');
 });
