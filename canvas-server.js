@@ -14,8 +14,8 @@ readCameras().then(canvasList => {
     let streamList = canvasList.map(function (uri, i) {
         let stream = new rtsp.FFMpeg({
             input: uri.url,
-            resolution: '704*576',
-            quality: 12,
+            resolution: '1280x720',
+            quality: 5,
             arguments: ['-rtsp_transport', 'tcp']
         });
 
