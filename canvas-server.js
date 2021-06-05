@@ -77,7 +77,7 @@ async function captureStreamImages() {
                 ["-rtsp_transport", "tcp", "-i", cam.url, "-vframes","10" , "-q:v", "5","-f","image2" ,"-update", "1", "-y", filename]);
             ls.on("close", code => {
                 console.log(`child process exited with code ${code}`);
-                filenames.push({image:`images/picture_${cam.image}.jpg`,code:"/"+cam.image});
+                filenames.push({image:`images/picture_${cam.image}.jpg`,code:"/"+cam.image,number:cam.image});
                 resolve(1);
             });
             ls.on('error', function (err) {
