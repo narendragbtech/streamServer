@@ -16,7 +16,7 @@
 // }
 
 //ffplay -i rtsp://127.0.0.1:6554/stream1
-// ffmpeg -i ./video/DynamicFileNameHere.mp4 -c:v copy -f rtsp rtsp://admin:ADMIN@12@136.233.89.172:554/Streaming/Channels/202
+// ffmpeg -i ./public/DynamicFileNameHere.mp4 -c:v copy -f rtsp rtsp://admin:ADMIN@12@136.233.89.172:554/Streaming/Channels/202
 // const Stream = require('videoStream')
 const http = require('http');
 const Stream = require('node-rtsp-stream-es6')
@@ -42,7 +42,7 @@ stream.start();
 
 
 // ffmpeg -i rtsp://admin:ADMIN@12@136.233.89.172:554/Streaming/Channels/202 -c copy -map 0 -f segment -segment_time 600 -segment_format mp4 out.mp4
-// ffmpeg -i rtsp://admin:ADMIN@12@136.233.89.172:554/Streaming/Channels/202 -c:a aac -vcodec copy video\2020-2-18-12-18-25.mp4
+// ffmpeg -i rtsp://admin:ADMIN@12@136.233.89.172:554/Streaming/Channels/202 -c:a aac -vcodec copy public\2020-2-18-12-18-25.mp4
 
 
 // ffmpeg -re -i rtsp://admin:ADMIN@12@136.233.89.172:554/Streaming/Channels/202 -c:v copy -c:a copy -f flv input.mp4
@@ -51,8 +51,8 @@ stream.start();
 // const Recorder = require('../src/helpers/recorder')
 // let rec = new Recorder({
 //     url: 'rtsp://admin:ADMIN@12@136.233.89.172:554/Streaming/Channels/202',
-//     timeLimit: 60, // time in seconds for each segmented video file
-//     folder: 'video',
+//     timeLimit: 60, // time in seconds for each segmented public file
+//     folder: 'public',
 //     name: 'cam1',
 //     type: 'image',
 //     directoryPathFormat: 'MMM-D-YYYY',
@@ -64,14 +64,14 @@ stream.start();
 // //     console.log('Image Captured')
 // // })
 // ffmpeg -i rtsp://admin:ADMIN@12@136.233.89.172:554/Streaming/Channels/202 -vcodec copy recording.mp4
-//  // Recorder, { RecorderEvents } from 'rtsp-video-recorder';
+//  // Recorder, { RecorderEvents } from 'rtsp-public-recorder';
 
 const Recorder = require('node-rtsp-recorder').Recorder
 
 let rec = new Recorder({
     url: '-rtsp_transport tcp rtsp://admin:ADMIN@12@136.233.89.172:554/Streaming/Channels/202',
-    timeLimit: 60, // time in seconds for each segmented video file
-    folder: 'video/',
+    timeLimit: 60, // time in seconds for each segmented public file
+    folder: 'public/',
     name: 'cam1',
     type: 'image',
 })
@@ -103,6 +103,6 @@ rec.captureImage(() => {
 //     .on('error', function (err) {
 //         console.log('error: ' + err);
 //     })
-//     .save('video/output3.mp4');
+//     .save('public/output3.mp4');
 //
 // record.startRecord();

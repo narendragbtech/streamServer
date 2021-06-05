@@ -90,12 +90,19 @@ async function captureStreamImages() {
         });
     });
 }
+// ffmpeg -ss 0.5 -rtsp_transport tcp -i rtsp://admin:ADMIN@12@136.233.89.172:1025/Streaming/Channels/401 -vframes 1 -f image2 imagefile.jpg
+// ffmpeg -rtsp_transport tcp -i rtsp://admin:ADMIN@12@136.233.89.172:1025/Streaming/Channels/401 -ss 00:00:03 -t 00:00:08 -async 1 cut.mp4
+// ffmpeg -ss -rtsp_transport tcp -i rtsp://admin:ADMIN@12@136.233.89.172:1025/Streaming/Channels/401 setpts=0.25*PTS -q:v 3 -update 1 -y test.png
+// ffmpeg -ss 00:08:00 -rtsp_transport tcp -i rtsp://admin:ADMIN@12@136.233.89.172:1025/Streaming/Channels/401 -ss 00:01:00 -t 00:01:00 -c copy VideoClip.mp4
+//ffmpeg -rtsp_transport tcp -i rtsp://admin:ADMIN@12@136.233.89.172:1025/Streaming/Channels/401 -vframes 5 -update 1
+//ffmpeg -rtsp_transport tcp -i rtsp://admin:ADMIN@12@136.233.89.172:1025/Streaming/Channels/401 -vframes 5 -f image2 -update 1 -
 
 async function readCameras() {
     let jsonData = await fs.readFileSync(__dirname + "/camera.json");
     return JSON.parse(jsonData);
 }
 
+// use rtsp = require('rtsp-ffmpeg') instead if you have install the package
 server.listen(3000, function () {
     console.log('Listening on localhost:3000');
 });

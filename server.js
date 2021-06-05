@@ -54,7 +54,7 @@ const streamServer = http.createServer( function(request, response) {
 
     // Record the stream to a local file?
     if (RECORD_STREAM) {
-        let path = 'video/' + Date.now() + '.ts';
+        let path = 'public/' + Date.now() + '.ts';
         request.socket.recording = fs.createWriteStream(path);
     }
 });
