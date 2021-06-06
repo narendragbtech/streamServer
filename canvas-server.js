@@ -7,7 +7,7 @@ const server = require('http').Server(app)
     , rtsp = require('rtsp-ffmpeg'),
     exec = require('child_process').exec;
 // use rtsp = require('rtsp-ffmpeg') instead if you have install the package
-server.listen(3000, function () {
+server.listen(80, function () {
     console.log('Listening on localhost:80');
 });
 
