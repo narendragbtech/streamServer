@@ -124,8 +124,9 @@ cams.forEach((object, i) => {
     });
 });
 
-let interval = setInterval(capture, 10000);
+let interval = setInterval(capture, 120000);
 io.on('connection', function (socket) {
+    socket.emit('capture', captureImages);
 });
 
 app.get('/', function (req, res) {
