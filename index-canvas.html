@@ -80,13 +80,15 @@
         });
 
     }
+    let files =[];
     socket.on('capture', function (filenames) {
         if(filenames){
+            files= filenames;
             filenames.forEach(f=>{
                 let wrapper= document.createElement('div');
                 wrapper.className="items";
                 let img= document.createElement('img');
-                img.src = f.image;
+                img.src = f.path;
                 img.addEventListener("click",()=>viewLive(f.code));
                 let p = document.createElement('p');
                 p.textContent = f.code;
@@ -97,6 +99,25 @@
         }
     })
 
+    setInterval(()=>{
+        if(files.length>0){
+            document.getElementById("cameraContainer").innerHTML="";
+            files.forEach(f=>{
+                let wrapper= document.createElement('div');
+                wrapper.className="items";
+                let img= document.createElement('img');
+                let d = new Date();
+                img.src = f.path+"?version="+d.getMilliseconds();
+                img.addEventListener("click",()=>viewLive(f.code));
+                let p = document.createElement('p');
+                p.textContent = f.code;
+                wrapper.append(p);
+                wrapper.appendChild(img);
+                document.getElementById("cameraContainer").appendChild(wrapper);
+            })
+        }
+
+    },10000);
 
     myModalEl.addEventListener('hidden.bs.modal', function (event) {
         if (divSocket) {
