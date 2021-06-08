@@ -6,7 +6,7 @@ const io = require('socket.io')(server);
 const rtsp = require('rtsp-ffmpeg');
 const {spawn} = require("child_process");
 require('console-stamp')(console, {format: ':date(yyyy/mm/dd HH:MM:ss.l)'});
-server.listen(3000, function () {
+server.listen(80, function () {
     console.log('Listening on localhost:80');
 });
 
