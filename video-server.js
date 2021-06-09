@@ -95,7 +95,7 @@ function startStream(object) {
     if (findStreamIndex === -1) {
         let stream = new rtsp.FFMpeg({
             input: object.url,
-            resolution: '704*576',
+            resolution: '1280x720',
             quality: 5,
             arguments: ['-rtsp_transport', 'tcp']
         });
@@ -120,6 +120,7 @@ function startStream(object) {
 
 camList.forEach((object, i) => {
     let ns = io.of('/' + object.image);
+
     ns.on('connection', function (wsocket) {
         console.log('New Live Camera Request For ' + object.image);
         let StreamObject = startStream(object);
