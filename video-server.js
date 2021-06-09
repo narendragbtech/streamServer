@@ -134,7 +134,7 @@ camList.forEach((object, i) => {
     });
 });
 
-setInterval(capture, 10000);
+setInterval(capture, 120000);
 
 app.get('/', function (req, res) {
     res.sendFile(__dirname + '/video-server.html');
