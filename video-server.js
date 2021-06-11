@@ -6,90 +6,226 @@ const io = require('socket.io')(server);
 const rtsp = require('rtsp-ffmpeg');
 const {spawn} = require("child_process");
 require('console-stamp')(console, {format: ':date(yyyy/mm/dd HH:MM:ss.l)'});
-server.listen(80, function () {
+server.listen(3000, function () {
     console.log('Listening on localhost:80');
 });
 
 app.use(express.static(path.join(__dirname, "public")));
 const camList = [
-    {url: 'rtsp://admin:ADMIN@12@136.233.89.172:1024/Streaming/Channels/101', code: '1024 | 101', image: '1024101'}
-    , {url: 'rtsp://admin:ADMIN@12@136.233.89.172:1024/Streaming/Channels/201', code: '1024 | 201', image: '1024201'}
-    , {url: 'rtsp://admin:ADMIN@12@136.233.89.172:1024/Streaming/Channels/301', code: '1024 | 301', image: '1024301'}
-    , {url: 'rtsp://admin:ADMIN@12@136.233.89.172:1024/Streaming/Channels/401', code: '1024 | 401', image: '1024401'}
-    , {url: 'rtsp://admin:ADMIN@12@136.233.89.172:1024/Streaming/Channels/501', code: '1024 | 501', image: '1024501'}
-    , {url: 'rtsp://admin:ADMIN@12@136.233.89.172:1024/Streaming/Channels/601', code: '1024 | 601', image: '1024601'}
-    , {url: 'rtsp://admin:ADMIN@12@136.233.89.172:1024/Streaming/Channels/701', code: '1024 | 701', image: '1024701'}
-    , {url: 'rtsp://admin:ADMIN@12@136.233.89.172:1024/Streaming/Channels/801', code: '1024 | 801', image: '1024801'}
-    , {url: 'rtsp://admin:ADMIN@12@136.233.89.172:1024/Streaming/Channels/901', code: '1024 | 901', image: '1024901'}
-    , {url: 'rtsp://admin:ADMIN@12@136.233.89.172:1024/Streaming/Channels/1001', code: '1024 | 1001', image: '10241001'}
-    , {url: 'rtsp://admin:ADMIN@12@136.233.89.172:1024/Streaming/Channels/1101', code: '1024 | 1101', image: '10241101'}
-    , {url: 'rtsp://admin:ADMIN@12@136.233.89.172:1024/Streaming/Channels/1201', code: '1024 | 1201', image: '10241201'}
-    , {url: 'rtsp://admin:ADMIN@12@136.233.89.172:1024/Streaming/Channels/1301', code: '1024 | 1301', image: '10241301'}
-    , {url: 'rtsp://admin:ADMIN@12@136.233.89.172:1024/Streaming/Channels/1401', code: '1024 | 1401', image: '10241401'}
-    , {url: 'rtsp://admin:ADMIN@12@136.233.89.172:1024/Streaming/Channels/1501', code: '1024 | 1501', image: '10241501'}
-    , {url: 'rtsp://admin:ADMIN@12@136.233.89.172:1024/Streaming/Channels/1601', code: '1024 | 1601', image: '10241601'}
-    , {url: 'rtsp://admin:ADMIN@12@136.233.89.172:1024/Streaming/Channels/1701', code: '1024 | 1701', image: '10241701'}
-    , {url: 'rtsp://admin:ADMIN@12@136.233.89.172:1024/Streaming/Channels/1801', code: '1024 | 1801', image: '10241801'}
-    , {url: 'rtsp://admin:ADMIN@12@136.233.89.172:1024/Streaming/Channels/1901', code: '1024 | 1901', image: '10241901'}
-    , {url: 'rtsp://admin:ADMIN@12@136.233.89.172:1024/Streaming/Channels/2001', code: '1024 | 2001', image: '10242001'}
-    , {url: 'rtsp://admin:ADMIN@12@136.233.89.172:1024/Streaming/Channels/2101', code: '1024 | 2101', image: '10242101'}
-    , {url: 'rtsp://admin:ADMIN@12@136.233.89.172:1024/Streaming/Channels/2201', code: '1024 | 2201', image: '10242201'}
+    {
+        url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1026/Streaming/Channels/101',
+        code: '1026 | 101',
+        image: '1026101'
+    }
+    , {
+        url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1026/Streaming/Channels/201',
+        code: '1026 | 201',
+        image: '1026201'
+    }
+    , {
+        url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1026/Streaming/Channels/301',
+        code: '1026 | 301',
+        image: '1026301'
+    }
+    , {
+        url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1026/Streaming/Channels/401',
+        code: '1026 | 401',
+        image: '1026401'
+    }
+    , {
+        url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1026/Streaming/Channels/501',
+        code: '1026 | 501',
+        image: '1026501'
+    }
+    , {
+        url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1026/Streaming/Channels/601',
+        code: '1026 | 601',
+        image: '1026601'
+    }
+    , {
+        url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1026/Streaming/Channels/701',
+        code: '1026 | 701',
+        image: '1026701'
+    }
+    , {
+        url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1026/Streaming/Channels/801',
+        code: '1026 | 801',
+        image: '1026801'
+    }
+    , {
+        url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1026/Streaming/Channels/901',
+        code: '1026 | 901',
+        image: '1026901'
+    }
+    , {
+        url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1026/Streaming/Channels/1001',
+        code: '1026 | 1001',
+        image: '10261001'
+    }
+    , {
+        url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1026/Streaming/Channels/1101',
+        code: '1026 | 1101',
+        image: '10261101'
+    }
+    , {
+        url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1026/Streaming/Channels/1201',
+        code: '1026 | 1201',
+        image: '10261201'
+    }
+    , {
+        url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1026/Streaming/Channels/1301',
+        code: '1026 | 1301',
+        image: '10261301'
+    }
+    , {
+        url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1026/Streaming/Channels/1401',
+        code: '1026 | 1401',
+        image: '10261401'
+    }
+    , {
+        url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1026/Streaming/Channels/1501',
+        code: '1026 | 1501',
+        image: '10261501'
+    }
+    , {
+        url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1026/Streaming/Channels/1601',
+        code: '1026 | 1601',
+        image: '10261601'
+    }
 
-    , {url: 'rtsp://admin:ADMIN@12@136.233.89.172:1025/Streaming/Channels/101', code: '1025 | 101', image: '1025101'}
-    , {url: 'rtsp://admin:ADMIN@12@136.233.89.172:1025/Streaming/Channels/201', code: '1025 | 201', image: '1025201'}
-    , {url: 'rtsp://admin:ADMIN@12@136.233.89.172:1025/Streaming/Channels/301', code: '1025 | 301', image: '1025301'}
-    , {url: 'rtsp://admin:ADMIN@12@136.233.89.172:1025/Streaming/Channels/401', code: '1025 | 401', image: '1025401'}
-    , {url: 'rtsp://admin:ADMIN@12@136.233.89.172:1025/Streaming/Channels/501', code: '1025 | 501', image: '1025501'}
-    , {url: 'rtsp://admin:ADMIN@12@136.233.89.172:1025/Streaming/Channels/601', code: '1025 | 601', image: '1025601'}
-    , {url: 'rtsp://admin:ADMIN@12@136.233.89.172:1025/Streaming/Channels/701', code: '1025 | 701', image: '1025701'}
-    , {url: 'rtsp://admin:ADMIN@12@136.233.89.172:1025/Streaming/Channels/801', code: '1025 | 801', image: '1025801'}
-    , {url: 'rtsp://admin:ADMIN@12@136.233.89.172:1025/Streaming/Channels/901', code: '1025 | 901', image: '1025901'}
-    , {url: 'rtsp://admin:ADMIN@12@136.233.89.172:1025/Streaming/Channels/1001', code: '1025 | 1001', image: '10251001'}
+    , {
+        url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1027/Streaming/Channels/101',
+        code: '1027 | 101',
+        image: '1027101'
+    }
+    , {
+        url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1027/Streaming/Channels/201',
+        code: '1027 | 201',
+        image: '1027201'
+    }
+    , {
+        url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1027/Streaming/Channels/301',
+        code: '1027 | 301',
+        image: '1027301'
+    }
+    , {
+        url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1027/Streaming/Channels/401',
+        code: '1027 | 401',
+        image: '1027401'
+    }
+    , {
+        url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1027/Streaming/Channels/501',
+        code: '1027 | 501',
+        image: '1027501'
+    }
+    , {
+        url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1027/Streaming/Channels/601',
+        code: '1027 | 601',
+        image: '1027601'
+    }
+    , {
+        url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1027/Streaming/Channels/701',
+        code: '1027 | 701',
+        image: '1027701'
+    }
+    , {
+        url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1027/Streaming/Channels/801',
+        code: '1027 | 801',
+        image: '1027801'
+    }
+    , {
+        url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1027/Streaming/Channels/901',
+        code: '1027 | 901',
+        image: '1027901'
+    }
+    , {
+        url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1027/Streaming/Channels/1001',
+        code: '1027 | 1001',
+        image: '10271001'
+    }
+    , {
+        url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1027/Streaming/Channels/1101',
+        code: '1027 | 1101',
+        image: '10271101'
+    }
+    , {
+        url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1027/Streaming/Channels/1201',
+        code: '1027 | 1201',
+        image: '10271201'
+    }
+    , {
+        url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1027/Streaming/Channels/1301',
+        code: '1027 | 1301',
+        image: '10271301'
+    }
+    , {
+        url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1027/Streaming/Channels/1401',
+        code: '1027 | 1401',
+        image: '10271401'
+    }
+    , {
+        url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1027/Streaming/Channels/1501',
+        code: '1027 | 1501',
+        image: '10271501'
+    }
+    , {
+        url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1027/Streaming/Channels/1601',
+        code: '1027 | 1601',
+        image: '10271601'
+    }
 
 ];
 const captureImages = [
-    {code: 1024101, path: "images/picture_1024101.jpg"}, {
-        code: 1024201,
-        path: "images/picture_1024201.jpg"
+    {code: 1026101, path: "images/picture_1026101.jpg"}, {
+        code: 1026201,
+        path: "images/picture_1026201.jpg"
     },
-    {code: 1024301, path: "images/picture_1024301.jpg"}, {
-        code: 1024401,
-        path: "images/picture_1024401.jpg"
-    }, {code: 1024501, path: "images/picture_1024501.jpg"}, {code: 1024601, path: "images/picture_1024601.jpg"},
-    {code: 1024701, path: "images/picture_1024701.jpg"}, {
-        code: 1024801,
-        path: "images/picture_1024801.jpg"
-    }, {code: 1024901, path: "images/picture_1024901.jpg"}, {
-        code: 10241001,
-        path: "images/picture_10241001.jpg"
-    }, {code: 10241101, path: "images/picture_10241101.jpg"}, {code: 10241201, path: "images/picture_10241201.jpg"},
-    {code: 10241301, path: "images/picture_10241301.jpg"}, {
-        code: 10241401,
-        path: "images/picture_10241401.jpg"
-    }, {code: 10241501, path: "images/picture_10241501.jpg"}, {
-        code: 10241601,
-        path: "images/picture_10241601.jpg"
-    }, {code: 10241701, path: "images/picture_10241701.jpg"},
-    {code: 10241801, path: "images/picture_10241801.jpg"}, {
-        code: 10241901,
-        path: "images/picture_10241901.jpg"
-    }, {code: 10242001, path: "images/picture_10242001.jpg"}, {
-        code: 10242101,
-        path: "images/picture_10242101.jpg"
-    }, {code: 10242201, path: "images/picture_10242201.jpg"},
-    {code: 1025101, path: "images/picture_1025101.jpg"}, {
-        code: 1025201,
-        path: "images/picture_1025201.jpg"
-    }, {code: 1025301, path: "images/picture_1025301.jpg"}, {
-        code: 1025401,
-        path: "images/picture_1025401.jpg"
-    }, {code: 1025501, path: "images/picture_1025501.jpg"}, {code: 1025601, path: "images/picture_1025601.jpg"},
-    {code: 1025701, path: "images/picture_1025701.jpg"}, {
-        code: 1025801,
-        path: "images/picture_1025801.jpg"
-    }, {code: 1025901, path: "images/picture_1025901.jpg"}, {code: 10251001, path: "images/picture_10251001.jpg"}
+    {code: 1026301, path: "images/picture_1026301.jpg"}, {
+        code: 1026401,
+        path: "images/picture_1026401.jpg"
+    }, {code: 1026501, path: "images/picture_1026501.jpg"}, {code: 1026601, path: "images/picture_1026601.jpg"},
+    {code: 1026701, path: "images/picture_1026701.jpg"}, {
+        code: 1026801,
+        path: "images/picture_1026801.jpg"
+    }, {code: 1026901, path: "images/picture_1026901.jpg"}, {
+        code: 10261001,
+        path: "images/picture_10261001.jpg"
+    }, {code: 10261101, path: "images/picture_10261101.jpg"}, {code: 10261201, path: "images/picture_10261201.jpg"},
+    {code: 10261301, path: "images/picture_10261301.jpg"}, {
+        code: 10261401,
+        path: "images/picture_10261401.jpg"
+    }, {code: 10261501, path: "images/picture_10261501.jpg"}, {
+        code: 10261601,
+        path: "images/picture_10261601.jpg"
+    },
+
+    {code: 1027101, path: "images/picture_1027101.jpg"},
+    {
+        code: 1027201,
+        path: "images/picture_1027201.jpg"
+    }, {code: 1027301, path: "images/picture_1027301.jpg"}, {
+        code: 1027401,
+        path: "images/picture_1027401.jpg"
+    }, {code: 1027501, path: "images/picture_1027501.jpg"}, {code: 1027601, path: "images/picture_1027601.jpg"},
+    {code: 1027701, path: "images/picture_1027701.jpg"}, {
+        code: 1027801,
+        path: "images/picture_1027801.jpg"
+    }, {code: 1027901, path: "images/picture_1027901.jpg"}, {code: 10271001, path: "images/picture_10271001.jpg"},
+
+    {code: 10271101, path: "images/picture_10271101.jpg"},
+    {code: 10271201, path: "images/picture_10271201.jpg"}, {
+        code: 10271301,
+        path: "images/picture_10271301.jpg"
+    }, {code: 10271401, path: "images/picture_10271401.jpg"},
+
+    {
+        code: 10271501,
+        path: "images/picture_10271501.jpg"
+    },
+    {code: 10271601, path: "images/picture_10271601.jpg"},
 ];
 const liveStream = [];
+
 function startStream(object) {
     let findStreamIndex = liveStream.findIndex(s => s.code === object.image);
     if (findStreamIndex === -1) {
@@ -104,12 +240,12 @@ function startStream(object) {
 
         stream.on('start', function () {
             console.log('stream ' + object.image + ' started');
-            console.log("Live Stream Length",liveStream.length);
+            console.log("Live Stream Length", liveStream.length);
         });
         stream.on('stop', function () {
             console.log('stream ' + object.image + ' stopped');
-            liveStream.splice(findStreamIndex,1);
-            console.log("Live Stream Length",liveStream.length);
+            liveStream.splice(findStreamIndex, 1);
+            console.log("Live Stream Length", liveStream.length);
         });
 
         return {stream: stream, code: object.image};
