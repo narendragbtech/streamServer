@@ -173,6 +173,31 @@ const camList = [
         code: '1027 | 1601',
         image: '10271601'
     }
+    , {
+        url: 'rtsp://admin:dvr12345@103.81.13.218:554/Streaming/Channels/101',
+        code: '554 | 101',
+        image: '554101'
+    } , {
+        url: 'rtsp://admin:dvr12345@103.81.13.218:554/Streaming/Channels/201',
+        code: '554 | 201',
+        image: '554201'
+    }, {
+        url: 'rtsp://admin:dvr12345@103.81.13.218:554/Streaming/Channels/301',
+        code: '554 | 301',
+        image: '554301'
+    }, {
+        url: 'rtsp://admin:dvr12345@103.81.13.218:554/Streaming/Channels/401',
+        code: '554 | 401',
+        image: '554401'
+    }, {
+        url: 'rtsp://admin:dvr12345@103.81.13.218:554/Streaming/Channels/501',
+        code: '554 | 501',
+        image: '554501'
+    }, {
+        url: 'rtsp://admin:dvr12345@103.81.13.218:554/Streaming/Channels/601',
+        code: '554 | 601',
+        image: '554601'
+    }
 
 ];
 const captureImages = [
@@ -223,6 +248,14 @@ const captureImages = [
         path: "images/picture_10271501.jpg"
     },
     {code: 10271601, path: "images/picture_10271601.jpg"},
+
+    {code: 554101, path: "images/picture_554101.jpg"},
+    {code: 554201, path: "images/picture_554201.jpg"},
+    {code: 554301, path: "images/picture_554301.jpg"},
+    {code: 554401, path: "images/picture_554401.jpg"},
+    {code: 554501, path: "images/picture_554501.jpg"},
+    {code: 554601, path: "images/picture_554601.jpg"},
+
 ];
 const liveStream = [];
 
@@ -271,7 +304,7 @@ camList.forEach((object, i) => {
     });
 });
 
-setInterval(capture, 120000);
+setInterval(capture, 12000);
 
 app.get('/', function (req, res) {
     res.sendFile(__dirname + '/video-server.html');
