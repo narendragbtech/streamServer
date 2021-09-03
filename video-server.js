@@ -199,14 +199,14 @@ const camList = [
         image: '554601'
     }
 
-    // -------------- ICU 1028
+    // -------------- ICU 1029
     , {
         url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1029/Streaming/Channels/1501',
         code: '1029 | 1501',
         image: '10291501'
     }
     , {
-        url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1029/Streaming/Channels/401',
+        url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1029/Streaming/Channels/1401',
         code: '1029 | 1401',
         image: '10291401'
     }
@@ -218,7 +218,7 @@ const camList = [
     , {
         url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1029/Streaming/Channels/1201',
         code: '1029 | 1201',
-        image: '10281201'
+        image: '10291201'
     }
     , {
         url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1029/Streaming/Channels/1101',
@@ -270,7 +270,77 @@ const camList = [
         code: '1029 | 101',
         image: '1029101'
     }
-    // -------------- ICU 1029
+    // -------------- ICU 1028
+    , {
+        url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1028/Streaming/Channels/1501',
+        code: '1028 | 1501',
+        image: '10281501'
+    }
+    , {
+        url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1028/Streaming/Channels/1401',
+        code: '1028 | 1401',
+        image: '10281401'
+    }
+    , {
+        url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1028/Streaming/Channels/1301',
+        code: '1028 | 1301',
+        image: '10281301'
+    }
+    , {
+        url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1028/Streaming/Channels/1201',
+        code: '1028 | 1201',
+        image: '10281201'
+    }
+    , {
+        url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1028/Streaming/Channels/1101',
+        code: '1028 | 1101',
+        image: '10281101'
+    }
+    , {
+        url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1028/Streaming/Channels/901',
+        code: '1028 | 901',
+        image: '1028901'
+    }
+    , {
+        url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1028/Streaming/Channels/801',
+        code: '1028 | 801',
+        image: '1028801'
+    }
+    , {
+        url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1028/Streaming/Channels/701',
+        code: '1028 | 701',
+        image: '1028701'
+    }
+    , {
+        url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1028/Streaming/Channels/601',
+        code: '1028 | 601',
+        image: '1028601'
+    }
+    , {
+        url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1028/Streaming/Channels/501',
+        code: '1028 | 501',
+        image: '1028501'
+    }
+    , {
+        url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1028/Streaming/Channels/401',
+        code: '1028 | 401',
+        image: '1028401'
+    }
+    , {
+        url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1028/Streaming/Channels/301',
+        code: '1028 | 301',
+        image: '1028301'
+    }
+    , {
+        url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1028/Streaming/Channels/201',
+        code: '1028 | 201',
+        image: '1028201'
+    }
+    , {
+        url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1028/Streaming/Channels/101',
+        code: '1028 | 101',
+        image: '1028101'
+    }
 
 ];
 const captureImages = [
