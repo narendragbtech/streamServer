@@ -199,6 +199,79 @@ const camList = [
         image: '554601'
     }
 
+    // -------------- ICU 1028
+    , {
+        url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1029/Streaming/Channels/1501',
+        code: '1029 | 1501',
+        image: '10291501'
+    }
+    , {
+        url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1029/Streaming/Channels/401',
+        code: '1029 | 1401',
+        image: '10291401'
+    }
+    , {
+        url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1029/Streaming/Channels/1301',
+        code: '1029 | 1301',
+        image: '10291301'
+    }
+    , {
+        url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1029/Streaming/Channels/1201',
+        code: '1029 | 1201',
+        image: '10281201'
+    }
+    , {
+        url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1029/Streaming/Channels/1101',
+        code: '1029 | 1101',
+        image: '10291101'
+    }
+    , {
+        url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1029/Streaming/Channels/901',
+        code: '1029 | 901',
+        image: '1029901'
+    }
+    , {
+        url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1029/Streaming/Channels/801',
+        code: '1029 | 801',
+        image: '1029801'
+    }
+    , {
+        url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1029/Streaming/Channels/701',
+        code: '1029 | 701',
+        image: '1029701'
+    }
+    , {
+        url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1029/Streaming/Channels/601',
+        code: '1029 | 601',
+        image: '1029601'
+    }
+    , {
+        url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1029/Streaming/Channels/501',
+        code: '1029 | 501',
+        image: '1029501'
+    }
+    , {
+        url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1029/Streaming/Channels/401',
+        code: '1029 | 401',
+        image: '1029401'
+    }
+    , {
+        url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1029/Streaming/Channels/301',
+        code: '1029 | 301',
+        image: '1029301'
+    }
+    , {
+        url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1029/Streaming/Channels/201',
+        code: '1029 | 201',
+        image: '1029201'
+    }
+    , {
+        url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1029/Streaming/Channels/101',
+        code: '1029 | 101',
+        image: '1029101'
+    }
+    // -------------- ICU 1029
+
 ];
 const captureImages = [
     {code: 1026101, path: "images/picture_1026101.jpg"}, {
@@ -255,6 +328,40 @@ const captureImages = [
     {code: 554401, path: "images/picture_554401.jpg"},
     {code: 554501, path: "images/picture_554501.jpg"},
     {code: 554601, path: "images/picture_554601.jpg"},
+
+    // icu
+
+    {code: 1029101, path: "images/picture_1029101.jpg"},
+    {code: 1029201, path: "images/picture_1029201.jpg"},
+    {code: 1029301, path: "images/picture_1029301.jpg"},
+    {code: 1029401, path: "images/picture_1029401.jpg"},
+    {code: 1029501, path: "images/picture_1029501.jpg"},
+    {code: 1029601, path: "images/picture_1029601.jpg"},
+
+    {code: 1029701, path: "images/picture_1029701.jpg"},
+    {code: 1029801, path: "images/picture_1029801.jpg"},
+    {code: 1029901, path: "images/picture_1029901.jpg"},
+    {code: 10291101, path: "images/picture_10291101.jpg"},
+    {code: 10291201, path: "images/picture_10291201.jpg"},
+    {code: 10291301, path: "images/picture_10291301.jpg"},
+    {code: 10291401, path: "images/picture_10291401.jpg"},
+    {code: 10291501, path: "images/picture_10291501.jpg"},
+
+    {code: 1028101, path: "images/picture_1028101.jpg"},
+    {code: 1028201, path: "images/picture_1028201.jpg"},
+    {code: 1028301, path: "images/picture_1028301.jpg"},
+    {code: 1028401, path: "images/picture_1028401.jpg"},
+    {code: 1028501, path: "images/picture_1028501.jpg"},
+    {code: 1028601, path: "images/picture_1028601.jpg"},
+
+    {code: 1028701, path: "images/picture_1028701.jpg"},
+    {code: 1028801, path: "images/picture_1028801.jpg"},
+    {code: 1028901, path: "images/picture_1028901.jpg"},
+    {code: 10281101, path: "images/picture_10281101.jpg"},
+    {code: 10281201, path: "images/picture_10281201.jpg"},
+    {code: 10281301, path: "images/picture_10281301.jpg"},
+    {code: 10281401, path: "images/picture_10281401.jpg"},
+    {code: 10281501, path: "images/picture_10281501.jpg"},
 
 ];
 const liveStream = [];
