@@ -6,7 +6,7 @@ const io = require('socket.io')(server);
 const rtsp = require('rtsp-ffmpeg');
 const {spawn} = require("child_process");
 require('console-stamp')(console, {format: ':date(yyyy/mm/dd HH:MM:ss.l)'});
-server.listen(3000, function () {
+server.listen(80, function () {
     console.log('Listening on localhost:80');
 });
 
@@ -226,6 +226,11 @@ const camList = [
         image: '10291101'
     }
     , {
+        url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1029/Streaming/Channels/1001',
+        code: '1029 | 1001',
+        image: '10291001'
+    }
+    , {
         url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1029/Streaming/Channels/901',
         code: '1029 | 901',
         image: '1029901'
@@ -295,6 +300,11 @@ const camList = [
         url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1028/Streaming/Channels/1101',
         code: '1028 | 1101',
         image: '10281101'
+    }
+    , {
+        url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1028/Streaming/Channels/1001',
+        code: '1028 | 1001',
+        image: '10281001'
     }
     , {
         url: 'rtsp://rtspadmin:Nscirtsp@12@115.242.233.166:1028/Streaming/Channels/901',
@@ -411,6 +421,7 @@ const captureImages = [
     {code: 1029701, path: "images/picture_1029701.jpg"},
     {code: 1029801, path: "images/picture_1029801.jpg"},
     {code: 1029901, path: "images/picture_1029901.jpg"},
+    {code: 10291001, path: "images/picture_10291001.jpg"},
     {code: 10291101, path: "images/picture_10291101.jpg"},
     {code: 10291201, path: "images/picture_10291201.jpg"},
     {code: 10291301, path: "images/picture_10291301.jpg"},
@@ -427,6 +438,7 @@ const captureImages = [
     {code: 1028701, path: "images/picture_1028701.jpg"},
     {code: 1028801, path: "images/picture_1028801.jpg"},
     {code: 1028901, path: "images/picture_1028901.jpg"},
+    {code: 10281001, path: "images/picture_10281001.jpg"},
     {code: 10281101, path: "images/picture_10281101.jpg"},
     {code: 10281201, path: "images/picture_10281201.jpg"},
     {code: 10281301, path: "images/picture_10281301.jpg"},
@@ -481,7 +493,7 @@ camList.forEach((object, i) => {
     });
 });
 
-setInterval(capture, 12000);
+setInterval(capture, 120000);
 
 app.get('/', function (req, res) {
     res.sendFile(__dirname + '/video-server.html');
